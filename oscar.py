@@ -8,8 +8,7 @@ cursor = conn.cursor()
 
 
 
-
-cursor.execute('''
+cursor.execute(
 CREATE TABLE IF NOT EXISTS film (
     id INTEGER PRIMARY KEY,
     ev INTEGER,
@@ -18,9 +17,9 @@ CREATE TABLE IF NOT EXISTS film (
     cim TEXT UNIQUE,
     bemutato DATE
 )
-''')
+)
 
-cursor.execute('''
+cursor.execute(
 CREATE TABLE IF NOT EXISTS kapcsolat (
     filmid INTEGER,
     keszitoid INTEGER,
@@ -28,12 +27,12 @@ CREATE TABLE IF NOT EXISTS kapcsolat (
     FOREIGN KEY (filmid) REFERENCES film(id),
     FOREIGN KEY (keszitoid) REFERENCES keszito(id)
 )
-''')
+)
 
-cursor.execute('''
+cursor.execute(
 CREATE TABLE IF NOT EXISTS keszito (
     id INTEGER PRIMARY KEY,
     nev TEXT UNIQUE,
     producer BOOLEAN
 )
-''')
+)
